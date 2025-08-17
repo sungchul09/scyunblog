@@ -1,15 +1,15 @@
-// src/components/notion/BlockRenderer.tsx (업데이트됨)
-import { css } from '@/styled-system/css'
-
 // 블록 타입별 컴포넌트 import
 import { ParagraphBlock, Heading1Block, Heading2Block, Heading3Block } from '@/src/components/notion/Blocks/TextBlocks'
 import { BulletedListBlock, NumberedListBlock, TodoBlock } from '@/src/components/notion/Blocks/ListBlocks'
 import { ImageBlock, VideoBlock, FileBlock } from '@/src/components/notion/Blocks/MediaBlocks'
 import { CalloutBlock, QuoteBlock, DividerBlock, ColumnListBlock, ColumnBlock } from '@/src/components/notion/Blocks/LayoutBlocks'
 import { CodeBlock } from '@/src/components/notion/Blocks/CodeBlocks'
-import { TableBlock, TableRowBlock } from '@/src/components/notion/Blocks/TableBlocks'
+import { TableRowBlock } from '@/src/components/notion/Blocks/TableBlocks'
+import EmbedBlock from '@/src/components/notion/Blocks/EmbedBlock'
+import BookmarkBlock from '@/src/components/notion/Blocks/BookmarkBlock'
 import UnsupportedBlock from '@/src/components/notion/Blocks/UnsupportedBlock'
 import ErrorBlock from '@/src/components/notion/Blocks/ErrorBlcok'
+import SimpleTableBlock from '@/src/components/notion/Blocks/SimpleTableBlock'
 
 export interface Block {
   id: string
@@ -75,9 +75,9 @@ export default function BlockRenderer({
       case 'code':
         return <CodeBlock block={block} />
 
-      // 테이블 블록
+      // 🎯 테이블 블록 - 간단한 테이블 렌더링 추가
       case 'table':
-        return <TableBlock block={block} />
+        return <SimpleTableBlock block={block} />
       case 'table_row':
         return (
           <TableRowBlock 
@@ -103,74 +103,3 @@ export default function BlockRenderer({
   }
 }
 
-// 추가 블록 컴포넌트들
-function EmbedBlock({ block }: { block: Block }) {
-  const embed = block.embed
-  const url = embed?.url
-
-  if (!url) return null
-
-  return (
-    <div className={css({
-      margin: '1.5rem 0',
-      border: '1px solid token(colors.gray.300)',
-      borderRadius: '0.5rem',
-      overflow: 'hidden'
-    })}>
-      <iframe
-        src={url}
-        className={css({
-          width: '100%',
-          height: '400px',
-          border: 'none'
-        })}
-        title="Embedded content"
-      />
-    </div>
-  )
-}
-
-function BookmarkBlock({ block }: { block: Block }) {
-  const bookmark = block.bookmark
-  const url = bookmark?.url
-  const caption = bookmark?.caption
-
-  if (!url) return null
-
-  return (
-    <a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={css({
-        display: 'block',
-        margin: '1rem 0',
-        padding: '1rem',
-        border: '1px solid token(colors.gray.300)',
-        borderRadius: '0.5rem',
-        textDecoration: 'none',
-        transition: 'all 0.2s ease',
-        _hover: {
-          backgroundColor: 'gray.50',
-          borderColor: 'blue.300'
-        }
-      })}
-    >
-      <div className={css({
-        fontSize: '0.875rem',
-        color: 'blue.600',
-        marginBottom: '0.25rem'
-      })}>
-        🔗 {url}
-      </div>
-      {caption && caption.length > 0 && (
-        <div className={css({
-          fontSize: '0.875rem',
-          color: 'gray.600'
-        })}>
-          {caption[0]?.plain_text}
-        </div>
-      )}
-    </a>
-  )
-} 

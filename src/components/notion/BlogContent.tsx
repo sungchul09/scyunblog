@@ -1,3 +1,4 @@
+// src/components/notion/BlogContent.tsx (업데이트됨)
 import { css } from '@/styled-system/css'
 import BlockRenderer, { Block } from './BlockRenderer'
 
@@ -39,19 +40,20 @@ export default function BlogContent({ blocks }: BlogContentProps) {
           }
         }
 
-        // 🎯 테이블 처리 - 첫 번째 행인지 확인
+        // 🎯 테이블 처리 - 완전히 새로운 방식
+        if (block.type === 'table') {
+          return <TableGroup key={block.id} block={block} blocks={blocks} index={index} />
+        }
+        
+        // 🎯 table_row는 TableGroup에서 처리하므로 개별 렌더링 건너뛰기
         if (block.type === 'table_row') {
-          const isFirstRow = index === 0 || blocks[index - 1]?.type !== 'table_row'
-          const hasColumnHeader = true
-          
-          return (
-            <BlockRenderer 
-              key={block.id} 
-              block={block}
-              isFirstRow={isFirstRow}
-              hasColumnHeader={hasColumnHeader}
-            />
-          )
+          const prevBlock = blocks[index - 1]
+          // 이전 블록이 table이거나 table_row면 이미 TableGroup에서 처리됨
+          if (prevBlock && (prevBlock.type === 'table' || prevBlock.type === 'table_row')) {
+            return null
+          }
+          // 단독 table_row (가능성 낮음)
+          return <BlockRenderer key={block.id} block={block} />
         }
 
         // 🎯 리스트 그룹핑 처리
@@ -65,6 +67,107 @@ export default function BlogContent({ blocks }: BlogContentProps) {
         return <BlockRenderer key={block.id} block={block} />
       })}
     </article>
+  )
+}
+
+// 🎯 테이블 그룹 컴포넌트
+function TableGroup({ 
+  block, 
+  blocks, 
+  index 
+}: { 
+  block: Block
+  blocks: Block[]
+  index: number 
+}) {
+  // table 블록 다음의 모든 table_row 블록들 수집
+  const tableRows = []
+  for (let i = index + 1; i < blocks.length; i++) {
+    if (blocks[i].type === 'table_row') {
+      tableRows.push(blocks[i])
+    } else {
+      break
+    }
+  }
+
+  const hasColumnHeader = block.table?.has_column_header || false
+
+  return (
+    <div className={css({
+      margin: '1.5rem 0',
+      overflow: 'auto',
+      borderRadius: '0.5rem',
+      border: '1px solid token(colors.gray.200)',
+      backgroundColor: 'white'
+    })}>
+      <table className={css({
+        width: '100%',
+        borderCollapse: 'collapse',
+        fontSize: '0.875rem'
+      })}>
+        <tbody>
+          {tableRows.map((row, rowIndex) => (
+            <TableRow 
+              key={row.id} 
+              block={row} 
+              isFirstRow={rowIndex === 0}
+              hasColumnHeader={hasColumnHeader}
+            />
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
+// 🎯 테이블 행 컴포넌트
+function TableRow({ 
+  block, 
+  isFirstRow, 
+  hasColumnHeader 
+}: { 
+  block: Block
+  isFirstRow: boolean
+  hasColumnHeader: boolean 
+}) {
+  const cells = block.table_row?.cells || []
+  const isHeaderRow = isFirstRow && hasColumnHeader
+
+  return (
+    <tr className={css({
+      borderBottom: '1px solid token(colors.gray.200)',
+      _hover: {
+        backgroundColor: 'gray.50'
+      }
+    })}>
+      {cells.map((cell: any[], cellIndex: number) => {
+        const CellComponent = isHeaderRow ? 'th' : 'td'
+        
+        return (
+          <CellComponent
+            key={cellIndex}
+            className={css({
+              padding: '0.75rem 1rem',
+              textAlign: 'left',
+              verticalAlign: 'top',
+              borderRight: '1px solid token(colors.gray.200)',
+              _last: {
+                borderRight: 'none'
+              },
+              ...(isHeaderRow && {
+                backgroundColor: 'gray.100',
+                fontWeight: '600',
+                color: 'gray.900'
+              })
+            })}
+          >
+            {cell.map((textItem: any, textIndex: number) => (
+              <span key={textIndex}>{textItem.plain_text}</span>
+            ))}
+          </CellComponent>
+        )
+      })}
+    </tr>
   )
 }
 

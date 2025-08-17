@@ -3,11 +3,13 @@ import { css } from '@/styled-system/css'
 import Link from 'next/link'
 
 export default function Header() {
-  const menuItems = ['home', 'profile', 'posts']
+  const menuItems = ['profile', 'blog']
 
   return (
     <div className={headerStyles}>
-      <h1 className={headerTitleStyles}>scyunblog</h1>
+      <h1 className={headerTitleStyles}>
+        <Link href="/">scyunblog</Link>
+      </h1>
       <div className={headerLeftStyles}>
         {menuItems.map((item) => (
           <Link href={`/${item}`} key={item}>

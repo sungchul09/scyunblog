@@ -20,12 +20,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
+        <Header className={headerHideOnPrint} />
         <section>{children}</section>
       </body>
     </html>
   )
 }
+
+const headerHideOnPrint = css({
+  '@media print': {
+    display: 'none',
+  },
+})
 
 const sectionStyles = css({
   backgroundColor: 'systemLightGray',

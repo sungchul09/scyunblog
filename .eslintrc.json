@@ -1,33 +1,18 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "es6"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"],
-      "@app/*": ["./src/app/*"],
-      "@lib/*": ["./src/lib/*"],
-      "@components/*": ["./src/components/*"],
-      "@styles/*": ["./src/styles/*"],
-      "@styled-system/*": ["./styled-system/*"]
-    }
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@pandacss/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "plugins": ["@pandacss", "jsx-a11y", "prettier"],
+  "rules": {
+    "no-console": "warn",
+    "prettier/prettier": "error",
+    "@pandacss/no-hardcoded-color": "error",
+    "@pandacss/no-physical-properties": "error",
+    "@pandacss/prefer-atomic-properties": "error",
+    "@pandacss/prefer-shorthand-properties": "error"
+  }
 }

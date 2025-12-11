@@ -2,11 +2,11 @@ import React from 'react'
 import { css } from '@/styled-system/css'
 import Link from 'next/link'
 
-export default function Header() {
+export default function Header({ className }: { className?: string }) {
   const menuItems = ['profile', 'blog']
 
   return (
-    <div className={headerStyles}>
+    <div className={`${headerStyles} ${className || ''}`}>
       <h1 className={headerTitleStyles}>
         <Link href="/">scyunblog</Link>
       </h1>

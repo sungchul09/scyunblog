@@ -19,7 +19,7 @@ export default function ProfilePage() {
   return (
     <div className={pageContainerStyle}>
       {/* 컨트롤 바 */}
-      <ControlBar resumeRef={resumeRef} scale={scale} setScale={setScale} />
+      {/* <ControlBar resumeRef={resumeRef} scale={scale} setScale={setScale} /> */}
 
       {/* 이력서 컨텐츠 */}
       <div
@@ -50,6 +50,7 @@ export default function ProfilePage() {
 
           {/* 강점 */}
           <StrengthsBlock />
+
           {/* 프로젝트 */}
           <ProjectBlock />
         </div>
@@ -68,6 +69,7 @@ const pageContainerStyle = css({
     py: "0",
     minH: "auto",
   },
+  fontFamily: "Pretendard",
 });
 
 const resumeContainerStyle = css({

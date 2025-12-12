@@ -1,3 +1,4 @@
+// CareerContent.tsx
 import { css } from "@/styled-system/css";
 import React from "react";
 
@@ -13,12 +14,17 @@ export default function CareerContent({
   position?: string;
 }) {
   return (
-    <div>
-      <div className={experienceHeaderStyle}>
-        <h3 className={companyNameStyle}>
-          {companyName}
-          {teamName && <span className={teamNameStyle}>{teamName}</span>}
-        </h3>
+    <div className={containerStyle}>
+      <div className={topRowStyle}>
+        <div className={companyRowStyle}>
+          <h3 className={companyNameStyle}>{companyName}</h3>
+          {teamName && (
+            <>
+              <span className={dividerStyle} />
+              <span className={teamNameStyle}>{teamName}</span>
+            </>
+          )}
+        </div>
         <span className={periodStyle}>{period}</span>
       </div>
       {position && <p className={positionStyle}>{position}</p>}
@@ -26,37 +32,51 @@ export default function CareerContent({
   );
 }
 
-const experienceHeaderStyle = css({
+const containerStyle = css({
+  display: "flex",
+  flexDirection: "column",
+  gap: "4px",
+});
+
+const topRowStyle = css({
   display: "flex",
   justifyContent: "space-between",
-  alignItems: "baseline",
-  mb: "8px",
+  alignItems: "center",
+  gap: "16px",
   flexWrap: "wrap",
-  columnGap: "16px",
-  rowGap: "16px",
+});
+
+const companyRowStyle = css({
+  display: "flex",
+  alignItems: "center",
+  gap: "10px",
 });
 
 const companyNameStyle = css({
-  fontSize: "18px",
+  fontSize: "15px",
   fontWeight: "600",
-  color: "primary",
+  color: "label.primary",
+});
+
+const dividerStyle = css({
+  width: "1px",
+  height: "12px",
+  bgColor: "gray.300",
 });
 
 const teamNameStyle = css({
   fontSize: "14px",
   color: "label.secondary",
   fontWeight: "500",
-  ml: "10px",
 });
 
 const periodStyle = css({
-  fontSize: "14px",
+  fontSize: "13px",
   color: "label.secondary",
-  fontWeight: "500",
+  flexShrink: 0,
 });
 
 const positionStyle = css({
-  fontSize: "15px",
+  fontSize: "14px",
   color: "label.secondary",
-  fontWeight: "500",
 });

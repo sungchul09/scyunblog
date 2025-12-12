@@ -1,13 +1,10 @@
+// ListContent.tsx
 import React from "react";
 import { css } from "@/styled-system/css";
-import SectionTitle from "./SectionTitle";
 
 export default function ListContent({ list }: { list: string[] }) {
   return (
-    <ul
-      className={listStyle}
-      style={{ paddingLeft: "20px", marginBottom: "0" }}
-    >
+    <ul className={listStyle}>
       {list.map((item, index) => (
         <li key={index} dangerouslySetInnerHTML={{ __html: item }} />
       ))}
@@ -16,20 +13,18 @@ export default function ListContent({ list }: { list: string[] }) {
 }
 
 const listStyle = css({
-  pl: "20px",
-  mb: "0",
+  display: "flex",
+  flexDirection: "column",
+  gap: "6px",
   listStyleType: "disc",
+  listStylePosition: "outside",
+  paddingInlineStart: "18px",
   "& li": {
-    fontSize: "14px",
-    lineHeight: "1.8",
+    fontSize: "13px",
+    lineHeight: "1.6",
     color: "label.primary",
-    mb: "6px",
-    "&:last-child": {
-      mb: "0",
-    },
   },
   "& strong": {
-    color: "label.primary",
-    fontWeight: "700",
+    fontWeight: "600",
   },
 });

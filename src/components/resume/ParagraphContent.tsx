@@ -1,7 +1,8 @@
+// ParagraphContent.tsx
 import { css } from "@/styled-system/css";
 import React from "react";
 
-export default function ParagraphBlock({
+export default function ParagraphContent({
   title,
   content,
 }: {
@@ -9,33 +10,30 @@ export default function ParagraphBlock({
   content: string;
 }) {
   return (
-    <div className={strengthItemStyle}>
-      <h3 className={strengthTitleStyle} style={{ marginBottom: "10px" }}>
-        {title}
-      </h3>
-      <p className={paragraphStyle}>{content}</p>
+    <div className={containerStyle}>
+      {title && <h3 className={titleStyle}>{title}</h3>}
+      <p
+        className={paragraphStyle}
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
     </div>
   );
 }
 
-const strengthTitleStyle = css({
-  fontSize: "16px",
-  fontWeight: "600",
-  color: "primary",
+const containerStyle = css({
+  display: "flex",
+  flexDirection: "column",
+  gap: "6px",
 });
 
-const strengthItemStyle = css({
-  // bgColor: "bg.grouped.base",
-  // p: "20px",
-  // rounded: "8px",
-  // borderInlineStartWidth: "4px",
-  // borderInlineStartStyle: "solid",
-  // borderInlineStartColor: "label.secondary",
+const titleStyle = css({
+  fontSize: "14px",
+  fontWeight: "600",
+  color: "label.primary",
 });
 
 const paragraphStyle = css({
-  fontSize: "15px",
+  fontSize: "14px",
   lineHeight: "1.7",
   color: "label.primary",
-  mb: "12px",
 });

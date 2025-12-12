@@ -1,6 +1,9 @@
+// EducationBlock.tsx
 import React from "react";
 import SectionTitle from "@/src/components/resume/SectionTitle";
 import CareerContent from "@/src/components/resume/CareerContent";
+import { css } from "@/styled-system/css";
+import BlockWrapper from "@/src/components/resume/BlockWrapper";
 
 export default function EducationBlock() {
   const title = "Education";
@@ -18,12 +21,19 @@ export default function EducationBlock() {
   ];
 
   return (
-    <section>
+    <BlockWrapper>
       <SectionTitle text={title} />
-
-      {educationList.map((education, index) => (
-        <CareerContent key={index} {...education} />
-      ))}
-    </section>
+      <div className={listStyle}>
+        {educationList.map((education, index) => (
+          <CareerContent key={index} {...education} />
+        ))}
+      </div>
+    </BlockWrapper>
   );
 }
+
+const listStyle = css({
+  display: "flex",
+  flexDirection: "column",
+  gap: "20px",
+});

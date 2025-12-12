@@ -1,7 +1,9 @@
+// ExperienceBlock.tsx
 import React from "react";
-import CarrierContent from "@/src/components/resume/CareerContent";
+import CareerContent from "@/src/components/resume/CareerContent";
 import SectionTitle from "@/src/components/resume/SectionTitle";
 import { css } from "@/styled-system/css";
+import BlockWrapper from "@/src/components/resume/BlockWrapper";
 
 export default function ExperienceBlock() {
   const title = "Experience";
@@ -19,19 +21,19 @@ export default function ExperienceBlock() {
   ];
 
   return (
-    <section>
+    <BlockWrapper>
       <SectionTitle text={title} />
-      <div className={experienceListStyle}>
+      <div className={listStyle}>
         {experienceList.map((experience, index) => (
-          <CarrierContent key={index} {...experience} />
+          <CareerContent key={index} {...experience} />
         ))}
       </div>
-    </section>
+    </BlockWrapper>
   );
 }
 
-const experienceListStyle = css({
+const listStyle = css({
   display: "flex",
   flexDirection: "column",
-  gap: "25px",
+  gap: "20px",
 });

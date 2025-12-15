@@ -25,9 +25,9 @@ export default function CareerContent({
             </>
           )}
         </div>
-        <span className={periodStyle}>{period}</span>
+        <span className={positionStyle}>{position}</span>
       </div>
-      {position && <p className={positionStyle}>{position}</p>}
+      {period && <p className={periodStyle}>{period}</p>}
     </div>
   );
 }
@@ -40,9 +40,9 @@ const containerStyle = css({
 
 const topRowStyle = css({
   display: "flex",
-  justifyContent: "space-between",
+  justifyContent: "flex-start",
   alignItems: "center",
-  gap: "16px",
+  gap: "8px",
   flexWrap: "wrap",
 });
 
@@ -79,4 +79,5 @@ const periodStyle = css({
 const positionStyle = css({
   fontSize: "14px",
   color: "label.secondary",
+  fontWeight: "500",
 });

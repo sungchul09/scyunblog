@@ -3,21 +3,11 @@ import React from "react";
 import { css } from "@/styled-system/css";
 import SectionTitle from "@/src/components/resume/SectionTitle";
 import BlockWrapper from "@/src/components/resume/BlockWrapper";
+import resumeData from "@/src/constants/resume.json";
 
 export default function SkillsBlock() {
   const title = "Skills";
-  const skillsList = [
-    {
-      category: "Core",
-      items: "Vue 3, Nuxt 3, TypeScript, JavaScript, React, Next.js",
-    },
-    { category: "Infra & Build", items: "pnpm, Turborepo, Vite" },
-    { category: "DevOps", items: "Jenkins, Docker, AWS, Nginx" },
-    {
-      category: "Collaboration",
-      items: "Storybook, Git, Figma, Jira, Slack, Swagger",
-    },
-  ];
+  const skillsList = resumeData.skills;
 
   return (
     <BlockWrapper>

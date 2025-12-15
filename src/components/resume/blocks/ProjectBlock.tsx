@@ -4,6 +4,7 @@ import { css } from "@/styled-system/css";
 import SectionTitle from "@/src/components/resume/SectionTitle";
 import BlockWrapper from "@/src/components/resume/BlockWrapper";
 import resumeData from "@/src/constants/resume.json";
+import CareerContent from "../CareerContent";
 
 export default function ProjectBlock() {
   const title = "Projects";
@@ -64,7 +65,6 @@ const companyHeaderStyle = css({
 
 const companyInfoStyle = css({
   display: "flex",
-  flexDirection: "column",
   gap: "8px",
 });
 

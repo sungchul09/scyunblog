@@ -1,30 +1,32 @@
-import { notFound } from 'next/navigation'
-import { getPost } from '@/src/lib/notion'
-import PageLayout from '@/src/components/notion/PageLayout'
-import BackLink from '@/src/components/notion/BackLink'
-import BlogArticle from '@/src/components/notion/BlogArticle'
+"use client";
+import { notFound } from "next/navigation";
+import { getPost } from "@/src/lib/notion";
+import PageLayout from "@/src/components/notion/PageLayout";
+import BackLink from "@/src/components/notion/BackLink";
+import BlogArticle from "@/src/components/notion/BlogArticle";
+import { useOnlyLink } from "@/src/hooks/useOnlyLink";
 
 interface PageProps {
   params: {
-    id: string
-  }
+    id: string;
+  };
 }
 
-export default async function BlogPost({ params }: PageProps) {
-  const post = await getPost(params.id)
-  
+export default function BlogPost({ params }: PageProps) {
+  const post = getPost(params.id);
+
   if (!post) {
-    notFound()
+    notFound();
   }
+
+  useOnlyLink();
 
   return (
     <PageLayout>
-      <BackLink href="/blog">
-        ← 목록으로 돌아가기
-      </BackLink>
-      
+      <BackLink href="/blog">← 목록으로 돌아가기</BackLink>
+
       <BlogArticle post={post} />
     </PageLayout>
-  )
-} 
-export const revalidate = 10 // 🎯 추가
+  );
+}
+export const revalidate = 10; // 🎯 추가

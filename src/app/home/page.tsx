@@ -1,5 +1,7 @@
-import React from 'react'
+"use client";
+import React from "react";
+import { useOnlyLink } from "@/src/hooks/useOnlyLink";
 
 export default function HomePage() {
-  return <div>HomePage</div>
+  useOnlyLink();
 }

@@ -3,7 +3,7 @@ import { css } from '@/styled-system/css'
 import Link from 'next/link'
 
 export default function Header({ className }: { className?: string }) {
-  const menuItems = ['profile', 'blog']
+  const menuItems = ['profile', 'portfolio', 'blog']
 
   return (
     <div className={`${headerStyles} ${className || ''}`}>

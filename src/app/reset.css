@@ -2,7 +2,9 @@
 *,
 *::before,
 *::after {
+  font-family: "Pretendard", sans-serif;
   box-sizing: border-box;
+  background-color: #fff;
 }
 
 /* 폰트 크기의 팽창을 방지합니다. */

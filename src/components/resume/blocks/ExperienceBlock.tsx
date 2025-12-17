@@ -4,7 +4,7 @@ import CareerContent from "@/src/components/resume/CareerContent";
 import SectionTitle from "@/src/components/resume/SectionTitle";
 import { css } from "@/styled-system/css";
 import BlockWrapper from "@/src/components/resume/BlockWrapper";
-import resumeData from "@/src/constants/resume.json";
+import { resumeData } from "@/src/constants/resume";
 
 export default function ExperienceBlock() {
   const title = "Experience";

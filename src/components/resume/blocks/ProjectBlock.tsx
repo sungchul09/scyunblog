@@ -3,12 +3,24 @@ import React from "react";
 import { css } from "@/styled-system/css";
 import SectionTitle from "@/src/components/resume/SectionTitle";
 import BlockWrapper from "@/src/components/resume/BlockWrapper";
-import resumeData from "@/src/constants/resume.json";
-import CareerContent from "../CareerContent";
+import { resumeData } from "@/src/constants/resume";
+
+interface ProjectItem {
+  title: string;
+  detailUrl?: string;
+  items: string[];
+}
+
+interface Project {
+  companyName: string;
+  period: string;
+  position: string;
+  list: ProjectItem[];
+}
 
 export default function ProjectBlock() {
   const title = "Projects";
-  const projectList = resumeData.projects;
+  const projectList = resumeData.projects as Project[];
 
   return (
     <BlockWrapper>
@@ -26,7 +38,33 @@ export default function ProjectBlock() {
             <div className={projectItemsStyle}>
               {project.list.map((item, idx) => (
                 <div key={idx} className={projectItemStyle}>
-                  <h4 className={projectTitleStyle}>{item.title}</h4>
+                  <div className={projectTitleContainerStyle}>
+                    <h4 className={projectTitleStyle}>{item.title}</h4>
+                    {item.detailUrl && (
+                      <a
+                        href={item.detailUrl}
+                        className={detailLinkStyle}
+                        aria-label="상세 보기"
+                      >
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M6 12L10 8L6 4"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <span>상세보기</span>
+                      </a>
+                    )}
+                  </div>
                   <ul className={listStyle}>
                     {item.items.map((li, i) => (
                       <li key={i} dangerouslySetInnerHTML={{ __html: li }} />
@@ -44,28 +82,30 @@ export default function ProjectBlock() {
 
 const projectListStyle = css({
   display: "flex",
-  flexDirection: "column",
-  gap: "48px",
+  flexDir: "column",
+  rowGap: "48px",
 });
 
 const companyBlockStyle = css({
   display: "flex",
-  flexDirection: "column",
-  gap: "20px",
+  flexDir: "column",
+  rowGap: "20px",
 });
 
 const companyHeaderStyle = css({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "flex-end",
-  gap: "16px",
-  borderBlockEnd: "1px solid token(colors.gray.200)",
+  columnGap: "16px",
+  borderBlockEndWidth: "1px",
+  borderBlockEndStyle: "solid",
+  borderBlockEndColor: "gray.200",
   paddingBlockEnd: "12px",
 });
 
 const companyInfoStyle = css({
   display: "flex",
-  gap: "8px",
+  columnGap: "8px",
 });
 
 const companyNameStyle = css({
@@ -87,14 +127,20 @@ const periodStyle = css({
 
 const projectItemsStyle = css({
   display: "flex",
-  flexDirection: "column",
-  gap: "30px",
+  flexDir: "column",
+  rowGap: "30px",
 });
 
 const projectItemStyle = css({
   display: "flex",
-  flexDirection: "column",
-  gap: "8px",
+  flexDir: "column",
+  rowGap: "8px",
+});
+
+const projectTitleContainerStyle = css({
+  display: "flex",
+  alignItems: "center",
+  columnGap: "8px",
 });
 
 const projectTitleStyle = css({
@@ -103,13 +149,37 @@ const projectTitleStyle = css({
   color: "label.primary",
 });
 
+const detailLinkStyle = css({
+  display: "inline-flex",
+  alignItems: "center",
+  columnGap: "3px",
+  fontSize: "12px",
+  fontWeight: "400",
+  color: "label.tertiary",
+  textDecorationLine: "none",
+  transitionProperty: "color",
+  transitionDuration: "0.15s",
+  flexShrink: 0,
+  "& svg": {
+    w: "12px",
+    h: "12px",
+    opacity: 0.6,
+  },
+  "&:hover": {
+    color: "brand.blue",
+    "& svg": {
+      opacity: 1,
+    },
+  },
+});
+
 const listStyle = css({
   display: "flex",
-  flexDirection: "column",
-  gap: "4px",
+  flexDir: "column",
+  rowGap: "4px",
   listStyleType: "disc",
   listStylePosition: "outside",
-  paddingInlineStart: "16px",
+  ps: "16px",
   "& li": {
     fontSize: "13px",
     lineHeight: "1.6",
@@ -117,6 +187,6 @@ const listStyle = css({
   },
   "& strong": {
     fontWeight: "600",
-    color: "primary",
+    color: "label.primary",
   },
 });

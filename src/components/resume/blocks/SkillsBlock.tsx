@@ -3,7 +3,7 @@ import React from "react";
 import { css } from "@/styled-system/css";
 import SectionTitle from "@/src/components/resume/SectionTitle";
 import BlockWrapper from "@/src/components/resume/BlockWrapper";
-import resumeData from "@/src/constants/resume.json";
+import { resumeData } from "@/src/constants/resume";
 
 export default function SkillsBlock() {
   const title = "Skills";

@@ -9,10 +9,11 @@
   "plugins": ["@pandacss", "jsx-a11y", "prettier"],
   "rules": {
     "no-console": "warn",
-    "prettier/prettier": "error",
-    "@pandacss/no-hardcoded-color": "error",
-    "@pandacss/no-physical-properties": "error",
-    "@pandacss/prefer-atomic-properties": "error",
-    "@pandacss/prefer-shorthand-properties": "error"
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
   }
 }

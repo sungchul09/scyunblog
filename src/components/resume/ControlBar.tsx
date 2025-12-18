@@ -138,7 +138,7 @@ const containerStyle = css({
   pos: "fixed",
   insetInlineEnd: "20px",
   display: "flex",
-  flexDir: "column",
+  flexDirection: "column",
   alignItems: "center",
   gap: "12px",
   px: "8px",

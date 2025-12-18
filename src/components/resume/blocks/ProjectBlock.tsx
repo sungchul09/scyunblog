@@ -26,7 +26,32 @@ export default function ProjectBlock() {
             <div className={projectItemsStyle}>
               {project.list.map((item, idx) => (
                 <div key={idx} className={projectItemStyle}>
-                  <h4 className={projectTitleStyle}>{item.title}</h4>
+                  {item.link ? (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={projectTitleLinkStyle}
+                    >
+                      <h4 className={projectTitleStyle}>{item.title}</h4>
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                        <polyline points="15 3 21 3 21 9" />
+                        <line x1="10" y1="14" x2="21" y2="3" />
+                      </svg>
+                    </a>
+                  ) : (
+                    <h4 className={projectTitleStyle}>{item.title}</h4>
+                  )}
                   <ul className={listStyle}>
                     {item.items.map((li, i) => (
                       <li key={i} dangerouslySetInnerHTML={{ __html: li }} />
@@ -101,6 +126,26 @@ const projectTitleStyle = css({
   fontSize: "14px",
   fontWeight: "600",
   color: "label.primary",
+});
+
+const projectTitleLinkStyle = css({
+  display: "inline-flex",
+  alignItems: "center",
+  gap: "6px",
+  textDecoration: "none",
+  color: "label.primary",
+  transition: "color 0.2s ease",
+  _hover: {
+    color: "brand.blue",
+    "& svg": {
+      color: "brand.blue",
+    },
+  },
+  "@media print": {
+    "& svg": {
+      display: "none",
+    },
+  },
 });
 
 const listStyle = css({

@@ -6,7 +6,7 @@ import RichText from './RichText'
 export function ParagraphBlock({ block }: { block: Block }) {
   // 빈 블록 처리
   const isEmpty = !block.paragraph?.rich_text || block.paragraph.rich_text.length === 0
-  
+
   if (isEmpty) {
     return (
       <div className={css({
@@ -18,6 +18,10 @@ export function ParagraphBlock({ block }: { block: Block }) {
 
   return (
     <p className={css({
+      fontSize: {
+        base: '0.9375rem',
+        md: '1rem'
+      },
       marginBottom: '1rem',
       lineHeight: '1.6',
       color: 'gray.800',
@@ -30,11 +34,20 @@ export function ParagraphBlock({ block }: { block: Block }) {
 
 export function Heading1Block({ block }: { block: Block }) {
   return (
-    <h1 
+    <h1
       className={css({
-        fontSize: '2rem',
-        marginBottom: '1.5rem',
-        marginTop: '2.5rem',
+        fontSize: {
+          base: '1.5rem',
+          md: '2rem'
+        },
+        marginBottom: {
+          base: '1rem',
+          md: '1.5rem'
+        },
+        marginTop: {
+          base: '1.5rem',
+          md: '2.5rem'
+        },
         color: 'gray.900',
         borderBottom: '2px solid token(colors.gray.200)',
         paddingBottom: '0.5rem',
@@ -49,11 +62,20 @@ export function Heading1Block({ block }: { block: Block }) {
 
 export function Heading2Block({ block }: { block: Block }) {
   return (
-    <h2 
+    <h2
       className={css({
-        fontSize: '1.5rem',
-        marginBottom: '1rem',
-        marginTop: '2rem',
+        fontSize: {
+          base: '1.25rem',
+          md: '1.5rem'
+        },
+        marginBottom: {
+          base: '0.75rem',
+          md: '1rem'
+        },
+        marginTop: {
+          base: '1.25rem',
+          md: '2rem'
+        },
         color: 'gray.900',
         whiteSpace: 'pre-line'
       })}
@@ -66,11 +88,20 @@ export function Heading2Block({ block }: { block: Block }) {
 
 export function Heading3Block({ block }: { block: Block }) {
   return (
-    <h3 
+    <h3
       className={css({
-        fontSize: '1.25rem',
-        marginBottom: '0.75rem',
-        marginTop: '1.5rem',
+        fontSize: {
+          base: '1.125rem',
+          md: '1.25rem'
+        },
+        marginBottom: {
+          base: '0.5rem',
+          md: '0.75rem'
+        },
+        marginTop: {
+          base: '1rem',
+          md: '1.5rem'
+        },
         color: 'gray.800',
         whiteSpace: 'pre-line'
       })}

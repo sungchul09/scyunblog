@@ -138,8 +138,14 @@ export default function BlogPage() {
       <div className={css({
           display: 'flex',
           justifyContent: 'start',
-          padding: '2rem',
-          marginBottom: '2rem'
+          padding: {
+            base: '0.5rem',
+            md: '1rem'
+          },
+          marginBottom: {
+            base: '1rem',
+            md: '2rem'
+          }
         })}>
       <PageTitle>블로그 포스트</PageTitle>
       </div>

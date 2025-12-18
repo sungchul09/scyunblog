@@ -5,15 +5,18 @@ interface PageLayoutProps {
   maxWidth?: string
 }
 
-export default function PageLayout({ 
-  children, 
-  maxWidth = '1200px' 
+export default function PageLayout({
+  children,
+  maxWidth = '1200px'
 }: PageLayoutProps) {
   return (
     <div className={css({
       maxWidth,
       margin: '0 auto',
-      padding: '2rem 1rem'
+      padding: {
+        base: '1rem 0.75rem',
+        md: '2rem 1.5rem'
+      }
     })}>
       {children}
     </div>

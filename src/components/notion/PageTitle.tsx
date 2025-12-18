@@ -7,15 +7,21 @@ interface PageTitleProps {
 
 export default function PageTitle({ children, size = 'xl' }: PageTitleProps) {
   const sizeStyles = {
-    lg: { fontSize: '1.5rem' },
-    xl: { fontSize: '1.875rem' },
-    '2xl': { fontSize: '2.25rem' }
+    lg: {
+      fontSize: { base: '1.25rem', md: '1.5rem' }
+    },
+    xl: {
+      fontSize: { base: '1.5rem', md: '1.875rem' }
+    },
+    '2xl': {
+      fontSize: { base: '1.75rem', md: '2.25rem' }
+    }
   }
 
   return (
     <h1 className={css({
       fontWeight: 'bold',
-      marginBottom: '2rem',
+      marginBottom: { base: '1rem', md: '2rem' },
       ...sizeStyles[size]
     })}>
       {children}

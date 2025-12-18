@@ -5,6 +5,10 @@ import RichText from '@/src/components/notion/Blocks/RichText'
 export function BulletedListBlock({ block }: { block: Block }) {
   return (
     <li className={css({
+      fontSize: {
+        base: '0.9375rem',
+        md: '1rem'
+      },
       marginBottom: '0.5rem', // 🎯 리스트 아이템 간격 증가
       paddingLeft: '1.5rem',
       position: 'relative',
@@ -25,6 +29,10 @@ export function BulletedListBlock({ block }: { block: Block }) {
 export function NumberedListBlock({ block }: { block: Block }) {
   return (
     <li className={css({
+      fontSize: {
+        base: '0.9375rem',
+        md: '1rem'
+      },
       marginBottom: '0.5rem', // 🎯 리스트 아이템 간격 증가
       paddingLeft: '2rem',
       listStyleType: 'decimal',
@@ -42,7 +50,7 @@ export function NumberedListBlock({ block }: { block: Block }) {
 
 export function TodoBlock({ block }: { block: Block }) {
   const isChecked = block.to_do?.checked
-  
+
   return (
     <div className={css({
       display: 'flex',
@@ -61,6 +69,10 @@ export function TodoBlock({ block }: { block: Block }) {
         })}
       />
       <span className={css({
+        fontSize: {
+          base: '0.9375rem',
+          md: '1rem'
+        },
         textDecoration: isChecked ? 'line-through' : 'none',
         color: isChecked ? 'gray.500' : 'gray.800'
       })}>

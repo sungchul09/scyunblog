@@ -9,7 +9,6 @@ import {
   PortfolioSection,
 } from "@/src/constants/portfolios";
 import Link from "next/link";
-import { portfolioConfig } from "@/src/config/portfolio";
 
 export default function PortfolioDetailPage() {
   const params = useParams();
@@ -17,7 +16,6 @@ export default function PortfolioDetailPage() {
   const slug = params.slug as string;
 
   const portfolio = portfolios.find((p) => p.id === slug);
-  const onlyLinkMode = portfolioConfig.onlyLinkMode;
 
   if (!portfolio) {
     return (
@@ -36,11 +34,9 @@ export default function PortfolioDetailPage() {
     <div className={pageContainerStyle}>
       <div className={contentStyle}>
         {/* 뒤로가기 */}
-        {!onlyLinkMode && (
           <Link href="/portfolio" className={backLinkStyle}>
             ← 포트폴리오 목록
           </Link>
-        )}
 
         {/* 헤더 */}
         <header className={headerStyle}>
@@ -131,7 +127,6 @@ export default function PortfolioDetailPage() {
         </div>
 
         {/* 하단 네비게이션 */}
-        {!onlyLinkMode && (
           <div className={navigationStyle}>
             <Link href="/portfolio" className={navButtonStyle}>
               포트폴리오 목록으로

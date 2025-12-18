@@ -11,10 +11,8 @@ import AwardsBlock from "@/src/components/resume/blocks/AwardsBlock";
 import ProjectBlock from "@/src/components/resume/blocks/ProjectBlock";
 import StrengthsBlock from "@/src/components/resume/blocks/StrengthsBlock";
 import SkillsBlock from "@/src/components/resume/blocks/SkillsBlock";
-import { useOnlyLink } from "@/src/hooks/useOnlyLink";
 
 export default function ProfilePage() {
-  useOnlyLink();
   const resumeRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(100);
 

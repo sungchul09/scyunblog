@@ -4,7 +4,6 @@ import { getPost } from "@/src/lib/notion";
 import PageLayout from "@/src/components/notion/PageLayout";
 import BackLink from "@/src/components/notion/BackLink";
 import BlogArticle from "@/src/components/notion/BlogArticle";
-import { useOnlyLink } from "@/src/hooks/useOnlyLink";
 
 interface PageProps {
   params: {
@@ -18,8 +17,6 @@ export default function BlogPost({ params }: PageProps) {
   if (!post) {
     notFound();
   }
-
-  useOnlyLink();
 
   return (
     <PageLayout>

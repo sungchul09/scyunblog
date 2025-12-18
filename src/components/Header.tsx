@@ -1,12 +1,9 @@
 import React from "react";
 import { css } from "@/styled-system/css";
 import Link from "next/link";
-import { portfolioConfig } from "@/src/config/portfolio";
 
 export default function Header({ className }: { className?: string }) {
   const menuItems = ["profile", "portfolio", "blog"];
-  const onlyLinkMode = portfolioConfig.onlyLinkMode;
-  if (onlyLinkMode) return null;
 
   return (
     <div className={`${headerStyles} ${className || ""}`}>

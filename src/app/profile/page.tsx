@@ -77,24 +77,24 @@ const pageContainerStyle = css({
 const resumeContainerStyle = css({
   // boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
   maxW: "210mm",
-  mt: "0",
-  mr: "auto",
-  mb: "0",
-  ml: "auto",
+  marginTop: "0",
+  marginRight: "auto",
+  marginBottom: "0",
+  marginLeft: "auto",
   bgColor: "white",
   "@media print": {
     maxW: "100%",
     boxShadow: "none",
-    m: "0",
+    margin: "0",
   },
 });
 
 const resumeContentStyle = css({
   display: "flex",
-  flexDir: "column",
+  flexDirection: "column",
   gap: "60px",
-  p: "60px",
+  padding: "60px",
   "@media print": {
-    p: "40px",
+    padding: "40px",
   },
 });

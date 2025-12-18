@@ -22,8 +22,14 @@ export function CodeBlock({ block }: { block: Block }) {
         {/* 코드 블록 헤더 */}
         <div className={css({
           backgroundColor: '#374151',
-          padding: '0.75rem 1rem',
-          fontSize: '0.875rem',
+          padding: {
+            base: '0.5rem 0.75rem',
+            md: '0.75rem 1rem'
+          },
+          fontSize: {
+            base: '0.75rem',
+            md: '0.875rem'
+          },
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center'
@@ -63,12 +69,18 @@ export function CodeBlock({ block }: { block: Block }) {
         </div>
         
         {/* 🎯 코드 내용 - RichText가 색상을 상속받도록 설정 */}
-        <pre 
+        <pre
           className={css({
-            padding: '1.5rem',
+            padding: {
+              base: '1rem',
+              md: '1.5rem'
+            },
             margin: '0',
             overflow: 'auto',
-            fontSize: '0.875rem',
+            fontSize: {
+              base: '0.8125rem',
+              md: '0.875rem'
+            },
             fontFamily: '"SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "Source Code Pro", monospace',
             lineHeight: '1.6',
             backgroundColor: '#1f2937',
@@ -105,12 +117,15 @@ export function CodeBlock({ block }: { block: Block }) {
 
 export function InlineCodeBlock({ text }: { text: string }) {
   return (
-    <code 
+    <code
       className={css({
         backgroundColor: '#f1f5f9',
         padding: '0.125rem 0.5rem',
         borderRadius: '0.375rem',
-        fontSize: '0.875rem',
+        fontSize: {
+          base: '0.8125rem',
+          md: '0.875rem'
+        },
         fontFamily: '"SF Mono", "Monaco", "Inconsolata", "Roboto Mono", monospace',
         fontWeight: '500',
         border: '1px solid #e2e8f0',

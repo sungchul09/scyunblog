@@ -1,11 +1,8 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import '@/src/app/reset.css'
 import '@/src/app/globals.css'
 import { css } from '@/styled-system/css'
 import Header from '@/src/components/Header'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'scyunblog',
@@ -18,14 +15,18 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="ko">
+      <body className={bodyStyles}>
         <Header className={headerHideOnPrint} />
         <section>{children}</section>
       </body>
     </html>
   )
 }
+
+const bodyStyles = css({
+  fontFamily: '"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif',
+})
 
 const headerHideOnPrint = css({
   '@media print': {

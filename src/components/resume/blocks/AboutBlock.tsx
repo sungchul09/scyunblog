@@ -26,7 +26,7 @@ export default function AboutBlock() {
 
 const contentStyle = css({
   display: "flex",
-  flexDir: "column",
+  flexDirection: "column",
   gap: "10px",
 });
 

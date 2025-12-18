@@ -3,24 +3,12 @@ import React from "react";
 import { css } from "@/styled-system/css";
 import SectionTitle from "@/src/components/resume/SectionTitle";
 import BlockWrapper from "@/src/components/resume/BlockWrapper";
-import { resumeData } from "@/src/constants/resume";
-
-interface ProjectItem {
-  title: string;
-  detailUrl?: string;
-  items: string[];
-}
-
-interface Project {
-  companyName: string;
-  period: string;
-  position: string;
-  list: ProjectItem[];
-}
+import resumeData from "@/src/constants/resume.json";
+import CareerContent from "../CareerContent";
 
 export default function ProjectBlock() {
   const title = "Projects";
-  const projectList = resumeData.projects as Project[];
+  const projectList = resumeData.projects;
 
   return (
     <BlockWrapper>
@@ -38,33 +26,32 @@ export default function ProjectBlock() {
             <div className={projectItemsStyle}>
               {project.list.map((item, idx) => (
                 <div key={idx} className={projectItemStyle}>
-                  <div className={projectTitleContainerStyle}>
-                    <h4 className={projectTitleStyle}>{item.title}</h4>
-                    {item.detailUrl && (
-                      <a
-                        href={item.detailUrl}
-                        className={detailLinkStyle}
-                        aria-label="상세 보기"
+                  {item.link ? (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={projectTitleLinkStyle}
+                    >
+                      <h4 className={projectTitleStyle}>{item.title}</h4>
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       >
-                        <svg
-                          width="14"
-                          height="14"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M6 12L10 8L6 4"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        <span>상세보기</span>
-                      </a>
-                    )}
-                  </div>
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                        <polyline points="15 3 21 3 21 9" />
+                        <line x1="10" y1="14" x2="21" y2="3" />
+                      </svg>
+                    </a>
+                  ) : (
+                    <h4 className={projectTitleStyle}>{item.title}</h4>
+                  )}
                   <ul className={listStyle}>
                     {item.items.map((li, i) => (
                       <li key={i} dangerouslySetInnerHTML={{ __html: li }} />
@@ -82,30 +69,28 @@ export default function ProjectBlock() {
 
 const projectListStyle = css({
   display: "flex",
-  flexDir: "column",
-  rowGap: "48px",
+  flexDirection: "column",
+  gap: "48px",
 });
 
 const companyBlockStyle = css({
   display: "flex",
-  flexDir: "column",
-  rowGap: "20px",
+  flexDirection: "column",
+  gap: "20px",
 });
 
 const companyHeaderStyle = css({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "flex-end",
-  columnGap: "16px",
-  borderBlockEndWidth: "1px",
-  borderBlockEndStyle: "solid",
-  borderBlockEndColor: "gray.200",
+  gap: "16px",
+  borderBlockEnd: "1px solid token(colors.gray.200)",
   paddingBlockEnd: "12px",
 });
 
 const companyInfoStyle = css({
   display: "flex",
-  columnGap: "8px",
+  gap: "8px",
 });
 
 const companyNameStyle = css({
@@ -127,20 +112,14 @@ const periodStyle = css({
 
 const projectItemsStyle = css({
   display: "flex",
-  flexDir: "column",
-  rowGap: "30px",
+  flexDirection: "column",
+  gap: "30px",
 });
 
 const projectItemStyle = css({
   display: "flex",
-  flexDir: "column",
-  rowGap: "8px",
-});
-
-const projectTitleContainerStyle = css({
-  display: "flex",
-  alignItems: "center",
-  columnGap: "8px",
+  flexDirection: "column",
+  gap: "8px",
 });
 
 const projectTitleStyle = css({
@@ -149,37 +128,33 @@ const projectTitleStyle = css({
   color: "label.primary",
 });
 
-const detailLinkStyle = css({
+const projectTitleLinkStyle = css({
   display: "inline-flex",
   alignItems: "center",
-  columnGap: "3px",
-  fontSize: "12px",
-  fontWeight: "400",
-  color: "label.tertiary",
-  textDecorationLine: "none",
-  transitionProperty: "color",
-  transitionDuration: "0.15s",
-  flexShrink: 0,
-  "& svg": {
-    w: "12px",
-    h: "12px",
-    opacity: 0.6,
-  },
-  "&:hover": {
+  gap: "6px",
+  textDecoration: "none",
+  color: "label.primary",
+  transition: "color 0.2s ease",
+  _hover: {
     color: "brand.blue",
     "& svg": {
-      opacity: 1,
+      color: "brand.blue",
+    },
+  },
+  "@media print": {
+    "& svg": {
+      display: "none",
     },
   },
 });
 
 const listStyle = css({
   display: "flex",
-  flexDir: "column",
-  rowGap: "4px",
+  flexDirection: "column",
+  gap: "4px",
   listStyleType: "disc",
   listStylePosition: "outside",
-  ps: "16px",
+  paddingInlineStart: "16px",
   "& li": {
     fontSize: "13px",
     lineHeight: "1.6",
@@ -187,6 +162,6 @@ const listStyle = css({
   },
   "& strong": {
     fontWeight: "600",
-    color: "label.primary",
+    color: "primary",
   },
 });

@@ -142,11 +142,6 @@ const projectTitleLinkStyle = css({
       color: "brand.blue",
     },
   },
-  "@media print": {
-    "& svg": {
-      display: "none",
-    },
-  },
 });
 
 const listStyle = css({

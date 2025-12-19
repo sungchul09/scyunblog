@@ -135,7 +135,6 @@ export default function PortfolioDetailPage() {
               이력서 보기
             </Link>
           </div>
-        )}
       </div>
     </div>
   );

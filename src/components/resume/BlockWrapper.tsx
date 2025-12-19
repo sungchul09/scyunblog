@@ -11,7 +11,7 @@ export default function BlockWrapper({
       className={css({
         display: "flex",
         flexDirection: "column",
-        gap: "12px",
+        gap: "14px",
       })}
     >
       {children}

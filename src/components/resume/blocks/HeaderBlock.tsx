@@ -85,44 +85,44 @@ const headerStyle = css({
 const infoSectionStyle = css({
   display: "flex",
   flexDirection: "column",
-  gap: "10px",
+  gap: "12px",
 });
 
 const topRowStyle = css({
   display: "flex",
   alignItems: "center",
-  gap: "12px",
+  gap: "14px",
 });
 
 const nameStyle = css({
-  fontSize: "28px",
+  fontSize: "32px",
   fontWeight: "700",
   color: "primary",
 });
 
 const dividerStyle = css({
   width: "1px",
-  height: "20px",
+  height: "22px",
   bgColor: "gray.300",
 });
 
 const roleStyle = css({
-  fontSize: "16px",
+  fontSize: "18px",
   fontWeight: "500",
   color: "label.secondary",
 });
 
 const contactRowStyle = css({
   display: "flex",
-  gap: "16px",
-  fontSize: "13px",
+  gap: "18px",
+  fontSize: "14px",
   color: "label.secondary",
 });
 
 const contactItemStyle = css({
   display: "flex",
   alignItems: "center",
-  gap: "5px",
+  gap: "6px",
 });
 
 const photoStyle = css({

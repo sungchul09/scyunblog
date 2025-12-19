@@ -69,24 +69,24 @@ export default function AwardsBlock() {
 const listStyle = css({
   display: "flex",
   flexDirection: "column",
-  gap: "10px",
+  gap: "12px",
 });
 
 const itemStyle = css({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  gap: "16px",
+  gap: "18px",
 });
 
 const itemMainStyle = css({
   display: "flex",
   alignItems: "center",
-  gap: "8px",
+  gap: "10px",
 });
 
 const itemNameStyle = css({
-  fontSize: "13px",
+  fontSize: "14px",
   fontWeight: "600",
   color: "label.primary",
 });
@@ -94,7 +94,7 @@ const itemNameStyle = css({
 const itemLinkStyle = css({
   display: "inline-flex",
   alignItems: "center",
-  gap: "6px",
+  gap: "7px",
   textDecoration: "none",
   color: "label.primary",
   transition: "color 0.2s ease",
@@ -112,7 +112,7 @@ const itemLinkStyle = css({
 });
 
 const itemDateStyle = css({
-  fontSize: "13px",
+  fontSize: "14px",
   color: "label.secondary",
   flexShrink: 0,
 });

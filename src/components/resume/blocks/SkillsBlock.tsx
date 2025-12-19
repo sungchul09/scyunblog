@@ -27,19 +27,20 @@ export default function SkillsBlock() {
 const listStyle = css({
   display: "flex",
   flexDirection: "column",
-  gap: "10px",
+  gap: "12px",
 });
 
 const itemStyle = css({
   display: "flex",
-  gap: "12px",
-  fontSize: "13px",
+  gap: "14px",
+  fontSize: "14px",
+  
 });
 
 const categoryStyle = css({
   fontWeight: "600",
   color: "label.primary",
-  minWidth: "100px",
+  minWidth: "110px",
   flexShrink: 0,
 });
 

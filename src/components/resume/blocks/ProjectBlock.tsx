@@ -70,42 +70,43 @@ export default function ProjectBlock() {
 const projectListStyle = css({
   display: "flex",
   flexDirection: "column",
-  gap: "48px",
+  gap: "56px",
 });
 
 const companyBlockStyle = css({
   display: "flex",
   flexDirection: "column",
-  gap: "20px",
+  gap: "24px",
 });
 
 const companyHeaderStyle = css({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "flex-end",
-  gap: "16px",
+  gap: "18px",
   borderBlockEnd: "1px solid token(colors.gray.200)",
-  paddingBlockEnd: "12px",
+  paddingBlockEnd: "14px",
 });
 
 const companyInfoStyle = css({
   display: "flex",
-  gap: "8px",
+  flexWrap: "wrap",
+  gap: "10px",
 });
 
 const companyNameStyle = css({
-  fontSize: "16px",
+  fontSize: "18px",
   fontWeight: "700",
   color: "label.primary",
 });
 
 const teamNameStyle = css({
-  fontSize: "13px",
+  fontSize: "14px",
   color: "label.secondary",
 });
 
 const periodStyle = css({
-  fontSize: "13px",
+  fontSize: "14px",
   color: "label.secondary",
   flexShrink: 0,
 });
@@ -113,17 +114,17 @@ const periodStyle = css({
 const projectItemsStyle = css({
   display: "flex",
   flexDirection: "column",
-  gap: "30px",
+  gap: "36px",
 });
 
 const projectItemStyle = css({
   display: "flex",
   flexDirection: "column",
-  gap: "8px",
+  gap: "10px",
 });
 
 const projectTitleStyle = css({
-  fontSize: "14px",
+  fontSize: "16px",
   fontWeight: "600",
   color: "label.primary",
 });
@@ -131,7 +132,7 @@ const projectTitleStyle = css({
 const projectTitleLinkStyle = css({
   display: "inline-flex",
   alignItems: "center",
-  gap: "6px",
+  gap: "7px",
   textDecoration: "none",
   color: "label.primary",
   transition: "color 0.2s ease",
@@ -151,13 +152,13 @@ const projectTitleLinkStyle = css({
 const listStyle = css({
   display: "flex",
   flexDirection: "column",
-  gap: "4px",
+  gap: "5px",
   listStyleType: "disc",
   listStylePosition: "outside",
-  paddingInlineStart: "16px",
+  paddingInlineStart: "18px",
   "& li": {
-    fontSize: "13px",
-    lineHeight: "1.6",
+    fontSize: "14px",
+    lineHeight: "1.7",
     color: "label.primary",
   },
   "& strong": {

@@ -25,5 +25,5 @@ export default function ExperienceBlock() {
 const listStyle = css({
   display: "flex",
   flexDirection: "column",
-  gap: "20px",
+  gap: "24px",
 });

@@ -25,5 +25,5 @@ export default function StrengthsBlock() {
 const listStyle = css({
   display: "flex",
   flexDirection: "column",
-  gap: "30px",
+  gap: "36px",
 });

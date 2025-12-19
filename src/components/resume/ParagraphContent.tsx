@@ -23,17 +23,17 @@ export default function ParagraphContent({
 const containerStyle = css({
   display: "flex",
   flexDirection: "column",
-  gap: "6px",
+  gap: "7px",
 });
 
 const titleStyle = css({
-  fontSize: "14px",
+  fontSize: "16px",
   fontWeight: "600",
   color: "label.primary",
 });
 
 const paragraphStyle = css({
-  fontSize: "14px",
-  lineHeight: "1.7",
+  fontSize: "16px",
+  lineHeight: "1.8",
   color: "label.primary",
 });

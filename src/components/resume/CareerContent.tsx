@@ -35,49 +35,49 @@ export default function CareerContent({
 const containerStyle = css({
   display: "flex",
   flexDirection: "column",
-  gap: "4px",
+  gap: "5px",
 });
 
 const topRowStyle = css({
   display: "flex",
   justifyContent: "flex-start",
   alignItems: "center",
-  gap: "8px",
+  gap: "10px",
   flexWrap: "wrap",
 });
 
 const companyRowStyle = css({
   display: "flex",
   alignItems: "center",
-  gap: "10px",
+  gap: "12px",
 });
 
 const companyNameStyle = css({
-  fontSize: "15px",
+  fontSize: "17px",
   fontWeight: "600",
   color: "label.primary",
 });
 
 const dividerStyle = css({
   width: "1px",
-  height: "12px",
+  height: "14px",
   bgColor: "gray.300",
 });
 
 const teamNameStyle = css({
-  fontSize: "14px",
+  fontSize: "16px",
   color: "label.secondary",
   fontWeight: "500",
 });
 
 const periodStyle = css({
-  fontSize: "13px",
+  fontSize: "14px",
   color: "label.secondary",
   flexShrink: 0,
 });
 
 const positionStyle = css({
-  fontSize: "14px",
+  fontSize: "16px",
   color: "label.secondary",
   fontWeight: "500",
 });

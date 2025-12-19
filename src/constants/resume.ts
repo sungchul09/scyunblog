@@ -92,7 +92,7 @@ export const resumeData: ResumeData = {
     },
     {
       category: "DevOps",
-      items: "Jenkins, Docker, AWS (ECR, EKS, S3, CloudFront), Nginx",
+      items: "Jenkins, Docker, AWS, Nginx",
     },
     {
       category: "Monitoring",

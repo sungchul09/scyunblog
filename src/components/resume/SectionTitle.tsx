@@ -7,7 +7,7 @@ export default function SectionTitle({ text }: { text: string }) {
 }
 
 const sectionTitleStyle = css({
-  fontSize: "18px",
+  fontSize: "20px",
   fontWeight: "800",
   color: "label.primary",
   textTransform: "uppercase",

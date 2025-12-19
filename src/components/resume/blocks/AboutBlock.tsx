@@ -27,12 +27,12 @@ export default function AboutBlock() {
 const contentStyle = css({
   display: "flex",
   flexDirection: "column",
-  gap: "10px",
+  gap: "12px",
 });
 
 const paragraphStyle = css({
-  fontSize: "14px",
-  lineHeight: "1.7",
+  fontSize: "16px",
+  lineHeight: "1.8",
   color: "label.primary",
   "& strong": {
     color: "label.primary",

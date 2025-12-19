@@ -90,8 +90,8 @@ const resumeContainerStyle = css({
 const resumeContentStyle = css({
   display: "flex",
   flexDirection: "column",
-  gap: "60px",
-  padding: "60px",
+  gap: "70px",
+  padding: "20px",
   "@media print": {
     padding: "40px",
   },

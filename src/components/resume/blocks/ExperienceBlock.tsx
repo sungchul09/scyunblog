@@ -7,7 +7,7 @@ import BlockWrapper from "@/src/components/resume/BlockWrapper";
 import resumeData from "@/src/constants/resume.json";
 
 export default function ExperienceBlock() {
-  const title = "Experience";
+  const title = "제작 경력";
   const experienceList = resumeData.experience;
 
   return (
@@ -25,5 +25,5 @@ export default function ExperienceBlock() {
 const listStyle = css({
   display: "flex",
   flexDirection: "column",
-  gap: "20px",
+  gap: "15px",
 });

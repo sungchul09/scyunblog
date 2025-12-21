@@ -7,7 +7,7 @@ import resumeData from "@/src/constants/resume.json";
 import CareerContent from "../CareerContent";
 
 export default function ProjectBlock() {
-  const title = "Projects";
+  const title = "프로그램 제작 이력";
   const projectList = resumeData.projects;
 
   return (

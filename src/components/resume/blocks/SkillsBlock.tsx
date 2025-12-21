@@ -6,7 +6,7 @@ import BlockWrapper from "@/src/components/resume/BlockWrapper";
 import resumeData from "@/src/constants/resume.json";
 
 export default function SkillsBlock() {
-  const title = "Skills";
+  const title = "사용 툴";
   const skillsList = resumeData.skills;
 
   return (
@@ -27,7 +27,7 @@ export default function SkillsBlock() {
 const listStyle = css({
   display: "flex",
   flexDirection: "column",
-  gap: "10px",
+  gap: "8px",
 });
 
 const itemStyle = css({

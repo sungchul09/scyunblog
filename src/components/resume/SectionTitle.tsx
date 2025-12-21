@@ -10,6 +10,5 @@ const sectionTitleStyle = css({
   fontSize: "18px",
   fontWeight: "800",
   color: "label.primary",
-  textTransform: "uppercase",
-  letterSpacing: "1px",
+  letterSpacing: "0.5px",
 });

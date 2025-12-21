@@ -7,10 +7,10 @@ import HeaderBlock from "@/src/components/resume/blocks/HeaderBlock";
 import AboutBlock from "@/src/components/resume/blocks/AboutBlock";
 import ExperienceBlock from "@/src/components/resume/blocks/ExperienceBlock";
 import EducationBlock from "@/src/components/resume/blocks/EducationBlock";
-import AwardsBlock from "@/src/components/resume/blocks/AwardsBlock";
 import ProjectBlock from "@/src/components/resume/blocks/ProjectBlock";
 import StrengthsBlock from "@/src/components/resume/blocks/StrengthsBlock";
 import SkillsBlock from "@/src/components/resume/blocks/SkillsBlock";
+import CoverLetterBlock from "@/src/components/resume/blocks/CoverLetterBlock";
 
 export default function ProfilePage() {
   const resumeRef = useRef<HTMLDivElement>(null);
@@ -42,14 +42,14 @@ export default function ProfilePage() {
           {/* 학력 */}
           <EducationBlock />
 
-          {/* 자격증 및 수상 */}
-          <AwardsBlock />
-
           {/* 기술 스택 */}
           <SkillsBlock />
 
           {/* 강점 */}
           <StrengthsBlock />
+
+          {/* 자기소개서 */}
+          <CoverLetterBlock />
 
           {/* 프로젝트 */}
           <ProjectBlock />
@@ -93,6 +93,6 @@ const resumeContentStyle = css({
   gap: "60px",
   padding: "60px",
   "@media print": {
-    padding: "40px",
+    padding: "30px",
   },
 });

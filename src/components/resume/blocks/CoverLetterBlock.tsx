@@ -1,21 +1,21 @@
-// EducationBlock.tsx
+// CoverLetterBlock.tsx
 import React from "react";
 import SectionTitle from "@/src/components/resume/SectionTitle";
-import CareerContent from "@/src/components/resume/CareerContent";
+import ParagraphContent from "@/src/components/resume/ParagraphContent";
 import { css } from "@/styled-system/css";
 import BlockWrapper from "@/src/components/resume/BlockWrapper";
 import resumeData from "@/src/constants/resume.json";
 
-export default function EducationBlock() {
-  const title = "학력/교육";
-  const educationList = resumeData.education;
+export default function CoverLetterBlock() {
+  const title = "자기소개서";
+  const contentList = resumeData.coverLetter;
 
   return (
     <BlockWrapper>
       <SectionTitle text={title} />
       <div className={listStyle}>
-        {educationList.map((education, index) => (
-          <CareerContent key={index} {...education} />
+        {contentList.map((content, index) => (
+          <ParagraphContent key={index} {...content} />
         ))}
       </div>
     </BlockWrapper>
@@ -25,5 +25,5 @@ export default function EducationBlock() {
 const listStyle = css({
   display: "flex",
   flexDirection: "column",
-  gap: "15px",
+  gap: "30px",
 });

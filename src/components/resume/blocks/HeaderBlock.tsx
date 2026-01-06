@@ -1,5 +1,6 @@
 import { css } from "@/styled-system/css";
 import React from "react";
+import AboutBlock from "./AboutBlock";
 
 const EmailIcon = () => (
   <svg
@@ -32,10 +33,34 @@ const GithubIcon = () => (
   </svg>
 );
 
+const BirthdayIcon = () => (
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M7 20h10" />
+    <path d="M7 16h10" />
+    <path d="M12 6v4" />
+    <path d="M12 2c1 1 1 2 0 3-1-1-1-2 0-3z" />
+    <rect x="3" y="16" width="18" height="4" rx="1" />
+    <path d="M3 11.2C3 10 4 9 5.2 9h13.6c1.2 0 2.2 1 2.2 2.2v1.6c0 .6-.4 1.2-1 1.2H4c-.6 0-1-.6-1-1.2v-1.6z" />
+  </svg>
+);
+
 export default function HeaderBlock() {
   const title = "윤성철";
   const subtitle = "Frontend Developer";
   const contactInfoList = [
+    {
+      icon: <BirthdayIcon />,
+      text: "1992.10.14",
+    },
     {
       icon: <EmailIcon />,
       text: "sungchul09@naver.com",
@@ -63,6 +88,7 @@ export default function HeaderBlock() {
           ))}
         </div>
       </div>
+      <AboutBlock />
       {/* <img
         w={80}
         h={80}
@@ -76,8 +102,7 @@ export default function HeaderBlock() {
 
 const headerStyle = css({
   display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
+  flexDirection: "column",
   gap: "20px",
   borderBlockEnd: "2px solid token(colors.primary)",
 });

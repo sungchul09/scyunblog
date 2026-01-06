@@ -52,10 +52,7 @@ export interface ResumeData {
 export const resumeData: ResumeData = {
   about: {
     title: "about",
-    paragraphs: [
-      "물류 자동화 시스템을 개발하며 <strong>실시간 제어와 장애 복구의 중요성</strong>을 체득했습니다. 이 경험을 바탕으로 프론트엔드에서도 '동작하는 코드'를 넘어 <strong>유지보수하기 좋고 예측 가능한 코드</strong>를 작성하려 노력합니다.",
-      "내 일의 경계를 짓지 않습니다. 모노레포 전환이 필요할 때 <strong>직접 시뮬레이션 결과를 들고 팀을 설득</strong>했고, 배포 효율을 위해 <strong>인프라 설정까지 주도</strong>했습니다. 팀 전체가 더 나은 환경에서 일할 수 있도록 <strong>구조적인 문제를 해결하는 과정</strong>을 즐깁니다.",
-    ],
+    paragraphs: ["물류 자동화 시스템 개발 경험을 바탕으로, 프론트엔드에서도 운영 안정성을 중요하게 봅니다. UI뿐 아니라 배포 구조와 캐시, 로그까지 함께 보며 문제를 해결해왔습니다."],
   },
   experience: [
     {
@@ -105,25 +102,20 @@ export const resumeData: ResumeData = {
   ],
   strengths: [
     {
-      title: "문제를 끝까지 추적하여 구조적 해결책을 만듭니다.",
+      title: "문제가 재현되지 않으면, 로그부터 봅니다",
       content:
-        '모놀리식 레포 운영의 문제점을 인식했을 때, 단순히 문제를 제기하는 데 그치지 않았습니다. 모노레포, 멀티레포 각각의 장단점을 분석하고, 팀원들을 설득하고, 인프라팀과 협업하여 실제 전환까지 주도했습니다. 디자인 시스템 역시 "누군가 해야 한다"는 상황에서 직접 디자인팀과 커뮤니케이션하고 구현을 시작하여 공용화의 창구를 마련했습니다.',
+      '국내에서 재현되지 않는 에러를 Datadog RUM과 OpenSearch 로그로 추적해 요청 타이밍 패턴과 CDN 캐시 불일치를 원인으로 특정하고 해결했습니다.',
     },
     {
-      title: "팀 전체의 생산성을 고민합니다.",
+      title: "반복되는 불편을 구조로 없애려고 시도합니다",
       content:
-        "개인의 코드 품질뿐 아니라, 팀이 효율적으로 협업할 수 있는 환경 자체를 중요하게 생각합니다. Storybook 배포 파이프라인을 구축해 PR 리뷰 시 구현체를 바로 확인할 수 있게 하고, 공통 배포 스크립트를 작성해 신규 앱 추가 비용을 줄이는 등 반복적인 비효율을 제거하는 작업을 즐깁니다.",
+      '모노레포 전환, 공통 배포 스크립트, Storybook 배포 파이프라인 등 "누군가 계속 귀찮아하던 일"을 시스템으로 정리하는 작업을 주도해왔습니다.',
     },
     {
-      title: "복잡한 문제를 단순하게 풀어냅니다.",
+      title: "Nuxt 3 페이지 라이프사이클을 분석해 공통 API 캐싱을 구현했습니다",  
       content:
-        "긴급 요청이 병렬로 들어오는 상황에서 페이지 간 결합도가 높아 작은 수정에도 전체 QA가 필요했습니다. 복잡한 아키텍처 패턴 대신 단일 책임 원칙과 관심사 분리라는 기본 원칙에 충실하여 리팩토링을 진행했고, 신규 기능 개발 기간을 2주에서 5일로 단축했습니다.",
-    },
-    {
-      title: "프레임워크의 동작 원리를 깊이 파고듭니다.",
-      content:
-      "외부 라이브러리 도입 전에 프레임워크 자체로 해결할 수 있는지 먼저 검토합니다. Nuxt 3의 페이지 전환 라이프사이클을 분석하여 Tanstack Query 없이 페이지 간 캐싱을 구현했고, 월 450만~645만 회의 API 호출을 절약했습니다. 이 경험은 팀 내에서 '프레임워크 자체 솔루션 우선 검토'라는 문화를 만드는 데 기여했습니다."
-    },
+      'SSR 환경에서 페이지 전환 시점을 활용해 캐시를 재사용하도록 설계했고, 월 약 450만~600만 회의 API 호출을 줄였습니다.',
+    }
   ],
   projects: [
     {
@@ -132,74 +124,42 @@ export const resumeData: ResumeData = {
       position: "Frontend Developer",
       list: [
         {
-          title: "모노레포 마이그레이션 및 인프라 구축",
-          detailUrl: "/portfolio/monorepo-migration",
+          title: "프론트엔드 모노레포 전환 및 배포 체계 구축",
+          detailUrl: "https://mahogany-wineberry-412.notion.site/2daea6a1aab8807e9009d021b537265e",
           items: [
-            "6개 서비스를 pnpm Workspace와 Turborepo로 통합, <strong>빌드 시간 50% 단축</strong> (10분 → 5분)",
-            '"오버엔지니어링 아니냐"는 팀 내 반대 의견에 멀티레포의 장기적 관점 단점 분석 및 팀 설득',
-            "S3, ECR, EKS 기존 인프라 분석 후 서비스별 독립적인 CDN 경로/Docker 이미지/포트 분리 설계",
-            "Jenkins 파라미터화 공통 스크립트로 신규 앱 추가 30분 이내 완료, 개발 경험 일관성 확보",
+            "6개 서비스 모놀리식 레포를 pnpm Workspace + Turborepo 기반 모노레포로 전환",
+            "멀티레포/모노레포 비교 자료로 팀 설득, 인프라팀과 협업해 배포 구조 재설계",
+            "Jenkins 파라미터화 스크립트로 서비스별 독립 배포 구현",
+            "<strong> -> 빌드 시간 50% 단축, 신규 앱 추가 30분 이내</strong>",
           ],
         },
         {
-          title: "디자인 시스템 Storybook 배포 환경 구축",
-          detailUrl: "/portfolio/design-system-storybook",
+          title: "디자인 시스템 실사용 구조 재정비",
+          detailUrl: "https://mahogany-wineberry-412.notion.site/2daea6a1aab88002be79c3c55d9b7a4c",
           items: [
-            "3년간 방치된 디자인 시스템을 실사용 가능하도록 팀 설득 및 UXD팀 협업 창구 마련",
-            "컴포넌트 패키지와 Storybook 앱 분리로 빌드 복잡도 감소 및 의존성 관리 명확화",
-            "방치된 레거시 배포 URL 발굴, Jenkins 파이프라인 구축하여 develop 브랜치 자동 배포",
-            "PR 리뷰 시 Storybook 링크로 구현체 즉시 확인, 디자이너 직접 QA 가능한 협업 프로세스 정립",
+            "방치된 디자인 시스템을 Storybook 중심 구조로 재설계",
+            "UXD팀과 협업 프로세스 수립, PR 단계 UI QA 환경 구축",
+            "공용 컴포넌트 및 Foundation 정비",
+            "<strong> -> UI 중복 구현 감소, 커뮤니케이션 비용 절감</strong>",
           ],
         },
         {
-          title: "Nuxt 3 라이프사이클 기반 캐싱 시스템",
-          detailUrl: "/portfolio/nuxt3-caching-system",
+          title: "Nuxt 3 라이프사이클 기반 API 캐싱 최적화",
+          detailUrl: "https://mahogany-wineberry-412.notion.site/Nuxt-2daea6a1aab88030811ff115ee838eba",
           items: [
-            "Nuxt 3 코어 코드 분석으로 페이지 전환 시 created가 unmounted보다 먼저 실행되는 특성 발견",
-            "useAsyncData + getCachedData + payload 활용하여 외부 라이브러리 없이 페이지 간 캐싱 구현",
-            "회원정보 API 70-80%, 사용자 차단 API 75-80%, 랭셋 API 40-60% 호출 감소",
-            "일일 약 15만-21만5천 회 API 호출 절약, <strong>월 450만-645만 회 호출 절약 효과</strong>",
+            "페이지 전환 라이프사이클 분석을 통한 공통 API 캐싱 구현",
+            "외부 라이브러리 없이 SSR 환경 캐시 문제 해결",
+            "<strong> -> 월 450만~645만 회 API 호출 절약</strong>",
           ],
         },
         {
-          title: "피드카드 렌더링 타이밍 최적화를 통한 Layout Shift 제거",
-          detailUrl: "/portfolio/layout-shift-optimization",
+          title: "운영 안정성 및 성능 개선",
+          detailUrl: "https://mahogany-wineberry-412.notion.site/2daea6a1aab88087a8abef6c8116b0f3",
           items: [
-            "API 호출 타이밍을 CSR에서 SSR로 변경, ref + 비동기 초기화를 computed로 전환",
-            "<strong>CLS 0.474 → 0.001 (99.8% 개선)</strong>, Lighthouse 성능 점수 63 → 83점",
-            "사용자 클릭 타이밍에 레이아웃이 변경되어 엉뚱한 곳을 클릭하는 문제 완전 해결",
+            "SSR 렌더링 타이밍 조정으로 Layout Shift 제거 (CLS 0.474 → 0.001)",
+            "로그 기반 분석으로 간헐적 500 에러 및 CDN 캐시 이슈 해결",
           ],
-        },
-        {
-          title: "Lottie 파일 최적화",
-          items: ["Lottie 파일 CDN 분리로 빌드 시간 단축 및 번들 사이즈 감소"],
-        },
-        {
-          title: "NAC 플랫폼 리팩토링",
-          items: [
-            "단일 책임 원칙(SRP) 기반 리팩토링으로 UI와 비즈니스 로직 분리",
-            "결합도 개선으로 <strong>신규 기능 개발 기간 2주 → 5일로 70% 단축</strong>, QA 기간 90% 감소",
-            "레이어 분리 및 액션 추상화로 사이드 이펙트 대폭 축소",
-          ],
-        },
-        {
-          title: "리스닝미션 웹 버전 개발",
-          items: [
-            "모바일 앱 전용 서비스를 웹으로 확장, 3단계 breakpoint 반응형 시스템 수립(scss)",
-            "useSeoMeta, useHead로 다국어 환경 동적 메타 태그 생성",
-            "세션 스토리지 기반 middleware 라우팅 가드로 순차 진입 정책 구현",
-          ],
-        },
-        {
-          title: "프로덕션 에러 모니터링 및 근본 원인 분석",
-          detailUrl: "/portfolio/race-condition-analysis",
-          items: [
-            "Slack 알림으로 간헐적 500 에러 감지, OpenSearch 로그 분석으로 0.5~0.6초 간격 중복 PUT 요청 패턴 발견",
-            "debounce 0.3초 + 버튼 비활성화 방어 로직이 있음에도 발생하는 근본 원인 추적",
-            "Vue 반응성 시스템의 비동기 특성으로 버튼 비활성화가 지연되고, 첫 요청 완료 후 submitBody가 null이 되어 두 번째 요청이 빈 body로 전송되는 레이스 컨디션 진단",
-            "debounce 제거 및 클릭 즉시 버튼 비활성화로 물리적 중복 클릭 원천 차단, 네트워크 환경 무관하게 안정적인 제출 기능 구현",
-          ],
-        },
+        }
       ],
     },
     {
@@ -210,7 +170,7 @@ export const resumeData: ResumeData = {
         {
           title: "물류 자동화 창고 제어 시스템 개발",
           items: [
-            "- 녹십자웰빙, 현대엘리베이터 판금/부품공장 3개 프로젝트 완료",
+            "녹십자웰빙, 현대엘리베이터 판금/부품공장 3개 프로젝트 완료",
             "공유메모리 기반 실시간 제어 아키텍처 설계 (SYSC, CCOM, AREA 모듈 분리)",
             "멀티스레드 기반 TCP/UDP 소켓 통신으로 Stacker Crane, RTV, Shuttle 등 장비 실시간 제어",
             "12개 테이블, 10개 이상 저장 프로시저 설계 (입출고 트랜잭션, 공출고/이중입고 자동 복구)",

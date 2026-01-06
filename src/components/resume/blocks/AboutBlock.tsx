@@ -10,7 +10,6 @@ export default function AboutBlock() {
 
   return (
     <BlockWrapper>
-      <SectionTitle text={title} />
       <div className={contentStyle}>
         {paragraphs.map((content, index) => (
           <p

@@ -3,8 +3,7 @@ import React from "react";
 import { css } from "@/styled-system/css";
 import SectionTitle from "@/src/components/resume/SectionTitle";
 import BlockWrapper from "@/src/components/resume/BlockWrapper";
-import resumeData from "@/src/constants/resume.json";
-import CareerContent from "../CareerContent";
+import { resumeData } from "@/src/constants/resume";
 
 export default function ProjectBlock() {
   const title = "Projects";
@@ -26,9 +25,9 @@ export default function ProjectBlock() {
             <div className={projectItemsStyle}>
               {project.list.map((item, idx) => (
                 <div key={idx} className={projectItemStyle}>
-                  {item.link ? (
+                  {item.detailUrl ? (
                     <a
-                      href={item.link}
+                      href={item.detailUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={projectTitleLinkStyle}

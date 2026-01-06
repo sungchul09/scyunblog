@@ -33,9 +33,6 @@ export default function ProfilePage() {
           {/* 헤더 */}
           <HeaderBlock />
 
-          {/* 소개 */}
-          <AboutBlock />
-
           {/* 경력 */}
           <ExperienceBlock />
 
